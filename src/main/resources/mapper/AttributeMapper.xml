@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.hanjia.mapper.AttributeMapper">
+
+    <select id="getEffectByName" resultType="string">
+        select effect from attributes_info where name=#{name}
+    </select>
+
+    <select id="getAllAttributes" resultType="com.hanjia.entity.Attribute">
+        select * from attributes_info;
+    </select>
+
+    <select id="getAttributeById" resultType="com.hanjia.entity.Attribute">
+        select * from attributes_info where id=#{id}
+    </select>
+
+    <update id="updateEffectById" >
+        update attributes_info set effect=#{effect} where id=#{id}
+    </update>
+
+    <update id="updateEffectByName" >
+        update attributes_info set effect=#{effect} where name=#{name}
+    </update>
+
+    <insert id="addAttribute" parameterType="com.hanjia.entity.Attribute">
+        insert into attributes_info value (#{id},#{name},#{effect})
+    </insert>
+</mapper>
